@@ -1,19 +1,19 @@
 class Contato:
-    def __init__(self, nome: str, sobrenome: str, telefone: Utilidades):
+    def __init__(self, nome: str, sobrenome: str, telefone: str):
         self.nome = nome
         self.sobrenome = sobrenome
         self.telefone = telefone
 
     @property
     def nome(self):
-        return self.nome
+        return self._nome
     
     @nome.setter
     def nome(self, novo_nome):
         if len(novo_nome.strip()) > 1:
-            self.__novo_nome = novo_nome.upper().strip()
+            self._nome = novo_nome.strip()
         else:
-            raise AttributeError(f"O nome do contato deve ter ao menos 2 caracteres!")
+            raise AttributeError("O nome do contato deve ter ao menos 2 caracteres!")
     
     @property
     def sobrenome(self):
@@ -41,8 +41,11 @@ class Contato:
         if len(numeros) != 11:
             raise ValueError("Número de telefone inválido. Deve conter 11 dígitos.")
         
-        numero_formatado = "({}) {}-{}".format("".join(numeros[:2]), "".join(numeros[2:6]), "".join(numeros[6:]))
+        ddd = "".join(numeros[:2])
+        primeira_parte = "".join(numeros[2:3])
+        segunda_parte = "".join(numeros[3:7])
+        terceira_parte = "".join(numeros[7:])
+        
+        numero_formatado = "({}) {} {}-{}".format(ddd, primeira_parte, segunda_parte, terceira_parte)
         
         return numero_formatado
-
-    
