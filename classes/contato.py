@@ -42,7 +42,7 @@ class Contato:
             raise ValueError("Número de telefone inválido. Deve conter 11 dígitos.")
         
         ddd = "".join(numeros[:2])
-        primeira_parte = "".join(numeros[2:3])
+        primeira_parte = "".join(numeros[2])
         segunda_parte = "".join(numeros[3:7])
         terceira_parte = "".join(numeros[7:])
         
